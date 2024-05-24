@@ -11,3 +11,6 @@ class JudicialFunctionAPI(Enum):
 
 class JudicialFunctionURL(Enum):
     SEARCH_CAUSES = 'consulta-causas/informacion/buscarCausas'
+    COUNT_CAUSES = 'consulta-causas/informacion/contarCausas'
+    PROCESS_DETAIL = 'consulta-causas-clex/informacion/getIncidenteJudicatura/'
+    JUDICIAL_PROCEEDINGS = 'consulta-causas/informacion/actuacionesJudiciales'

@@ -22,20 +22,8 @@ def home():
 @app.post('/search', tags=['Search'])
 def search_information_list(cause_data: GetCauseListModel):
     api_rest_client = RestAPIClient()
-    judicial_service = JudicialFunctionService(api_rest_client=api_rest_client)
-    cause_controller = CauseController()
-    return cause_controller.get_information(
-        cause_data=cause_data,
-        judicial_service=judicial_service
+    judicial_service = JudicialFunctionService(
+        api_rest_client=api_rest_client
     )
-
-
-@app.post('/get-legal_information', tags=['Search'])
-def search_information_list(
-    cause_data: GetCauseListModel,
-    response: Response,
-    session_db: Session = Depends(get_database_session)
-):
-    pass
-
-
+    cause_controller = CauseController(judicial_service=judicial_service)
+    return cause_controller.get_process_information(cause_data=cause_data)

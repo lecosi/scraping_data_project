@@ -12,3 +12,27 @@ class JudicialFunctionCauseConnectionError(JudicialFunctionConnectionError):
 
 class JudicialFunctionCauseServerError(JudicialFunctionServerError):
     pass
+
+
+class JudicialFunctionCountConnectionError(JudicialFunctionConnectionError):
+    pass
+
+
+class JudicialFunctionCountServerError(JudicialFunctionServerError):
+    pass
+
+
+class JudicialFunctionDetailConnectionError(JudicialFunctionConnectionError):
+    pass
+
+
+class JudicialFunctionDetailServerError(JudicialFunctionServerError):
+    pass
+
+
+class JudicialFunctionProceedingConnectionError(JudicialFunctionConnectionError):
+    pass
+
+
+class JudicialFunctionProceedingServerError(JudicialFunctionServerError):
+    pass
