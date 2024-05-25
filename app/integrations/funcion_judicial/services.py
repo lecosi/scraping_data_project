@@ -10,7 +10,7 @@ from app.integrations.funcion_judicial.exceptions import \
     JudicialFunctionProceedingConnectionError, \
     JudicialFunctionProceedingServerError
 from app.schemas.cause_schema import GetCauseListModel, SearchTypeEnum
-from app.utils.rest_api_client import RestAPIClient
+from app.utils.rest_api_client_async import RestAPIClient
 from app.utils.scraping_utils import generate_user_agent
 
 
@@ -35,7 +35,7 @@ class JudicialFunctionService:
     ):
         self.rest_client = api_rest_client
 
-    def request_get_total_causes(
+    async def request_get_total_causes(
         self,
         *,
         cause_data: GetCauseListModel
@@ -68,7 +68,7 @@ class JudicialFunctionService:
             data['cedulaDemandado']['cedulaDemandado'] = \
                 cause_data.identification
 
-        response = self.rest_client.request_post(
+        response = await self.rest_client.request_post(
             url=url,
             headers=self.HEADERS,
             data=data
@@ -90,7 +90,7 @@ class JudicialFunctionService:
 
         return response_data
 
-    def request_causes(
+    async def request_causes(
         self,
         *,
         cause_data: GetCauseListModel,
@@ -125,7 +125,7 @@ class JudicialFunctionService:
             data['cedulaDemandado']['cedulaDemandado'] = \
                 cause_data.identification
 
-        response = self.rest_client.request_post(
+        response = await self.rest_client.request_post(
             url=url,
             headers=self.HEADERS,
             data=data
@@ -147,7 +147,7 @@ class JudicialFunctionService:
 
         return response_data
 
-    def request_detail_process(
+    async def request_detail_process(
         self,
         *,
         judgment_id: str,
@@ -158,7 +158,7 @@ class JudicialFunctionService:
 
         url = f'{JUDICIAL_FUNCTION_URL}/{api_version}/{endpoint}/{judgment_id}'
 
-        response = self.rest_client.request_get(
+        response = await self.rest_client.request_get(
             url=url,
             headers=self.HEADERS
         )
@@ -179,7 +179,7 @@ class JudicialFunctionService:
 
         return response_data
 
-    def request_judicial_proceedings(
+    async def request_judicial_proceedings(
         self,
         *,
         judgment_id: str,
@@ -202,7 +202,7 @@ class JudicialFunctionService:
             "incidente": 1
         }
 
-        response = self.rest_client.request_post(
+        response = await self.rest_client.request_post(
             url=url,
             headers=self.HEADERS,
             data=data

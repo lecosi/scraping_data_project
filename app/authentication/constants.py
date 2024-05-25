@@ -1,0 +1,10 @@
+from enum import Enum
+from os import getenv
+
+ACCESS_EXPIRATION_TIME = int(getenv('ACCESS_EXPIRATION_TIME', '20'))
+REFRESH_EXPIRATION_TIME = int(getenv('REFRESH_EXPIRATION_TIME', '20'))
+
+
+class TokenTypes(Enum):
+    ACCESS = ACCESS_EXPIRATION_TIME
+    REFRESH = REFRESH_EXPIRATION_TIME
