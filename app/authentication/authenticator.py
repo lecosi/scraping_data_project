@@ -1,10 +1,14 @@
 from typing import Tuple
-
+from fastapi import Request
 from jwt.exceptions import InvalidTokenError
 from abc import ABC, abstractmethod
 
+from sqlalchemy.orm import Session
+
 from .constants import TokenTypes
 from .pyjwt import JWTHandler
+from .selectors import get_user_by_id
+from ..db.models import User
 
 
 class BaseAuthenticator(ABC):
@@ -20,16 +24,18 @@ class BaseAuthenticator(ABC):
 
 class JWTAuthenticator(BaseAuthenticator):
 
-    def __init__(self):
+    def __init__(self, session: Session):
         self.token_handler = JWTHandler()
+        self._db_connection = session
 
-    def authenticate(self, request=None, **kwargs):
-        token = request.META.get('HTTP_AUTHORIZATION')
+    def authenticate(self, request: Request, **kwargs):
+        token = request.headers.get('authorization')
         if not token:
             raise InvalidTokenError({
                 'component': 'Authentication',
                 'msg': 'No token provided'
             })
+
         token = token.split(' ')[1]
         user, token = self.authenticate_credentials(token)
         return user, token
@@ -41,7 +47,6 @@ class JWTAuthenticator(BaseAuthenticator):
                 'component': 'Authentication',
                 'msg': 'Not access token provided'
             })
-
         user_id = payload.get('user_id')
         if user_id is None:
             raise InvalidTokenError({
@@ -49,14 +54,16 @@ class JWTAuthenticator(BaseAuthenticator):
                 'msg': 'Token malformed or not found'
             })
 
-        user_qs = User.objects.filter(id=user_id)
-        if not user_qs.exists():
+        user = get_user_by_id(
+            user_id=user_id,
+            session_db=self._db_connection
+        )
+        if not user:
             raise InvalidTokenError({
                 'component': 'Authentication',
                 'msg': 'User does not exists'
             })
 
-        user = user_qs.last()
         if not user.is_active:
             raise InvalidTokenError({
                 'component': 'Authentication',

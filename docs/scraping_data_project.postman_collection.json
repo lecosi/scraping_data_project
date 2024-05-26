@@ -1,0 +1,495 @@
+{
+	"info": {
+		"_postman_id": "24506098-6dc0-40d7-b20c-2b5f1ac21a4b",
+		"name": "scraping_data_project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2662354"
+	},
+	"item": [
+		{
+			"name": "apis_funcion_judicial",
+			"item": [
+				{
+					"name": "ContarCausas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain,  */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-419,es;q=0.9"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json "
+							},
+							{
+								"key": "Origin",
+								"value": "https://procesosjudiciales.funcionjudicial.gob.ec"
+							},
+							{
+								"key": "Referer",
+								"value": "https://procesosjudiciales.funcionjudicial.gob.ec/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"numeroCausa\":\"\",\n    \"actor\":{\n        \"cedulaActor\":\"\",\n        \"nombreActor\":\"\"\n    },\n    \"demandado\":{\n        \"cedulaDemandado\":\"1791251237001\",\n        \"nombreDemandado\":\"\"\n    },\n    \"provincia\":\"\",\n    \"numeroFiscalia\":\"\",\n    \"recaptcha\":\"verdad\"\n}"
+						},
+						"url": {
+							"raw": "https://api.funcionjudicial.gob.ec/EXPEL-CONSULTA-CAUSAS-SERVICE/api/consulta-causas/informacion/contarCausas",
+							"protocol": "https",
+							"host": [
+								"api",
+								"funcionjudicial",
+								"gob",
+								"ec"
+							],
+							"path": [
+								"EXPEL-CONSULTA-CAUSAS-SERVICE",
+								"api",
+								"consulta-causas",
+								"informacion",
+								"contarCausas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscarCausas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain,  */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-419,es;q=0.9"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json "
+							},
+							{
+								"key": "Origin",
+								"value": "https://procesosjudiciales.funcionjudicial.gob.ec"
+							},
+							{
+								"key": "Referer",
+								"value": "https://procesosjudiciales.funcionjudicial.gob.ec/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\"",
+								"disabled": true
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0",
+								"disabled": true
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\"",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numeroCausa\":\"\",\n    \"actor\":{\n        \"cedulaActor\":\"0968599020001\",\n        \"nombreActor\":\"\"\n    },\"demandado\":{\n        \"cedulaDemandado\":\"\",\n        \"nombreDemandado\":\"\"\n    },\n    \"provincia\":\"\",\n    \"numeroFiscalia\":\"\",\n    \"recaptcha\":\"verdad\",\n    \"first\":\"1\",\n    \"pageSize\":\"10\"\n    }"
+						},
+						"url": {
+							"raw": "https://api.funcionjudicial.gob.ec/EXPEL-CONSULTA-CAUSAS-SERVICE/api/consulta-causas/informacion/buscarCausas?page=1&size=140",
+							"protocol": "https",
+							"host": [
+								"api",
+								"funcionjudicial",
+								"gob",
+								"ec"
+							],
+							"path": [
+								"EXPEL-CONSULTA-CAUSAS-SERVICE",
+								"api",
+								"consulta-causas",
+								"informacion",
+								"buscarCausas"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "140"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "IncidenteJudicial",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain,  */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-419,es;q=0.9"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json "
+							},
+							{
+								"key": "Origin",
+								"value": "https://procesosjudiciales.funcionjudicial.gob.ec"
+							},
+							{
+								"key": "Referer",
+								"value": "https://procesosjudiciales.funcionjudicial.gob.ec/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							}
+						],
+						"url": {
+							"raw": "https://api.funcionjudicial.gob.ec/EXPEL-CONSULTA-CAUSAS-CLEX-SERVICE/api/consulta-causas-clex/informacion/getIncidenteJudicatura/08332202400176",
+							"protocol": "https",
+							"host": [
+								"api",
+								"funcionjudicial",
+								"gob",
+								"ec"
+							],
+							"path": [
+								"EXPEL-CONSULTA-CAUSAS-CLEX-SERVICE",
+								"api",
+								"consulta-causas-clex",
+								"informacion",
+								"getIncidenteJudicatura",
+								"08332202400176"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActuacionesJuidiciales",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain,  */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-419,es;q=0.9"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json "
+							},
+							{
+								"key": "Origin",
+								"value": "https://procesosjudiciales.funcionjudicial.gob.ec"
+							},
+							{
+								"key": "Referer",
+								"value": "https://procesosjudiciales.funcionjudicial.gob.ec/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idMovimientoJuicioIncidente\":26015981,\n    \"idJuicio\":\"08332202400176\",\n    \"idJudicatura\":\"08332\",\n    \"idIncidenteJudicatura\":27389734,\n    \"aplicativo\":\"web\",\n    \"nombreJudicatura\":\"UNIDAD JUDICIAL MULTICOMPETENTE CIVIL DE QUININDÉ\",\n    \"incidente\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.funcionjudicial.gob.ec/EXPEL-CONSULTA-CAUSAS-SERVICE/api/consulta-causas/informacion/actuacionesJudiciales",
+							"protocol": "https",
+							"host": [
+								"api",
+								"funcionjudicial",
+								"gob",
+								"ec"
+							],
+							"path": [
+								"EXPEL-CONSULTA-CAUSAS-SERVICE",
+								"api",
+								"consulta-causas",
+								"informacion",
+								"actuacionesJudiciales"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE3MTY2NzM0NTYsInRva2VuX3R5cGUiOiJBQ0NFU1MifQ.U8kXZHI3bNmxAxjFSzU2ag7YnkKoyCK7-fDCdCOq-40",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"lecosi2\",\n    \"password\": \"L30n4rd0+.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search_information",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE3MTY2ODI0NTksInRva2VuX3R5cGUiOiJBQ0NFU1MifQ.vsxOIz6zlIy1vbnYas9lQa0uiPYBvnenmpZ9S94mZAs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"identification\": \"0968599020001\",\n    \"search_type\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"lecosi2\",\n    \"password\": \"L30n4rd0+.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refresh-token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE3MTY2ODIwMDIsInRva2VuX3R5cGUiOiJBQ0NFU1MifQ.3C9a97yZuPvPOhMwCcFwFGVSAJXoQlDq787QpQISPkE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE3MTY2ODIwMDIsInRva2VuX3R5cGUiOiJSRUZSRVNIIn0.F_U1rY_b5DBLCTLwyd2DyZVZUHlrC275CDbmP8QoYTg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/refresh-token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"refresh-token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
